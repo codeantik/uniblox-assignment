@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const adminRoutes = require("./routes/admin");
+const cartRoutes = require("./routes/cart");
+const checkoutRoutes = require("./routes/checkout");
 const { errorHandler } = require("./middlewares/error");
 
 const app = express();
@@ -16,15 +18,12 @@ app.use(
 
 // home route
 app.get("/", (req, res) => {
-  res.send("Hey There! Welcome to Uniblox API");
+  res.status(200).send("Hey There! Welcome to Uniblox API");
 });
 
 app.use("/v1/admin", adminRoutes);
-
-// send back a not found error for any unknown api request
-app.use((req, res, next) => {
-  next(new Error("Not found"));
-});
+app.use("/v1/cart", cartRoutes);
+app.use("/v1/checkout", checkoutRoutes);
 
 // handle error
 app.use(errorHandler);

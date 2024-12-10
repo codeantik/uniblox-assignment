@@ -19,7 +19,7 @@ const generateDiscountCode = catchAsync((req, res) => {
 
 const getStoreStats = catchAsync((req, res) => {
   const storeStats = AdminService.getStoreStats();
-  res.status(200).send(storeStats);
+  res.status(200).json(storeStats);
 });
 
 module.exports = {

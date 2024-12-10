@@ -1,9 +1,9 @@
 const express = require("express");
-const { generateDiscountCode, getStoreStats } = require("../controllers/adminController");
+const adminController = require("../controllers/adminController");
 
 const router = express.Router();
 
-router.post("/generate-discount-code", generateDiscountCode);
-router.get("/store/stats", getStoreStats);
+router.route("/discount-code").post(adminController.generateDiscountCode);
+router.route("/store-stats").get(adminController.getStoreStats);
 
 module.exports = router;

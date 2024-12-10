@@ -8,10 +8,11 @@ class AdminService {
       .substring(2, 8)
       .toUpperCase()}`;
 
-    discountCodes[discountCode] = {
+    discountCodes.push({
+      discountCode,
       discountPercent,
       isApplied: false,
-    };
+    });
     return { discountCode, discountPercent };
   }
 
@@ -48,4 +49,4 @@ class AdminService {
   }
 }
 
-module.exports = AdminService
+module.exports = AdminService;
