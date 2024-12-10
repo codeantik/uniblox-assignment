@@ -1,0 +1,3 @@
+# Ignore pushing development files and folders to repository
+
+/node_modules
