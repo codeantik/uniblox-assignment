@@ -9,9 +9,7 @@ const generateDiscountCode = catchAsync((req, res) => {
     const discountCode = AdminService.createDiscountCode(
       adminConstants.DISCOUNT_PERCENT
     );
-    res
-      .status(201)
-      .send({ message: "Discount Code generated successfully", discountCode });
+    res.status(201).send(discountCode);
   }
 
   res.status(200).send({ message: "Discount not applicable for this order" });
